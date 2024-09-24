@@ -1,0 +1,222 @@
+<div class="todo-card">
+    <h1>{{ todo.title }}</h1>
+    <p>{{ todo.description }}</p>
+    
+    {% if todo.completed %}
+        <p class="completed-status">Status: Completed</p>
+    {% else %}
+        <p class="incomplete-status">Status: Not Completed</p>
+    {% endif %}
+
+    <div class="button-group">
+        <a href="{% url 'todos:update_todo' todo.id %}" class="edit-button">Edit</a>
+        <a href="{% url 'todos:delete_todo' todo.id %}" class="delete-button">Delete</a>
+    </div>
+</div>
+<style>
+ /* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f9fc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the todo card */
+.todo-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    text-align: left;
+    margin: 20px;
+}
+
+/* Todo title styling */
+.todo-card h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Todo description styling */
+.todo-card p {
+    font-size: 16px;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Completed status styling */
+.todo-card p.completed-status {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4caf50; /* Green for completed */
+}
+
+/* Incomplete status styling */
+.todo-card p.incomplete-status {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff5252; /* Red for not completed */
+}
+
+/* Edit and Delete links as buttons */
+.todo-card .button-group {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.todo-card a {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Edit button styling */
+.todo-card a.edit-button {
+    background-color: #1976d2; /* Blue for edit */
+}
+
+.todo-card a.edit-button:hover {
+    background-color: #0d47a1;
+}
+
+/* Delete button styling */
+.todo-card a.delete-button {
+    background-color: #f44336; /* Red for delete */
+}
+
+.todo-card a.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+/* Button container spacing */
+.button-group {
+    margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .todo-card {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .todo-card h1 {
+        font-size: 20px;
+    }
+
+    .todo-card p {
+        font-size: 14px;
+    }
+
+    .todo-card a {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+}
+
+</style>
+<!-- <style>
+    
+    /* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the form */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
+    font-weight: 500;
+}
+
+/* Input fields */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Textarea styling */
+textarea {
+    height: 80px;
+    resize: none;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+/* Label styling */
+label {
+    font-size: 14px;
+    color: #333333;
+    font-weight: 500;
+}
+
+/* Button styling */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for the button */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 600px) {
+    form {
+        width: 90%;
+    }
+}
+
+</style> -->
